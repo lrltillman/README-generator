@@ -1,6 +1,8 @@
+let licenseLink = ``;
+let licenseBadge = ``;
+
 
 function renderLicenseBadge(data) {
-  let licenseBadge = ``;
   let badge = data.license;
   if (badge === "MIT") {
     licenseBadge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
@@ -15,7 +17,6 @@ function renderLicenseBadge(data) {
 };
 
 function renderLicenseLink(data) {
-  let licenseLink = ``;
   let link = data.license;
   if (link === "MIT") {
     licenseLink = `[The MIT License](https://opensource.org/licenses/MIT)`
@@ -29,7 +30,9 @@ function renderLicenseLink(data) {
   } else return licenseLink;
 };
 
-function renderLicenseSection() { }
+function renderLicenseSection(data) {
+  return `For this project I used ${renderLicenseLink(data)} ${renderLicenseBadge(data)}`;
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -49,7 +52,7 @@ ${data.usage}
 
   ## License
 
-${renderLicenseBadge(data)}
+${renderLicenseSection(data)}
 
   ## Contributors
 
@@ -61,13 +64,10 @@ ${data.tests}
 
   ## Questions
 
-* [Find me on Github](https://github.com/${data.github})
-* E-mail me at ${data.email}  
+  * [Find me on Github](https://github.com/${data.github})
+* E - mail me at ${data.email}
 
-`;
+    `;
 }
 
 module.exports = generateMarkdown;
-
-
-//  ${renderLicenseSection(data.license)}
