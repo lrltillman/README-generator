@@ -3,8 +3,6 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 // IMPORT OTHER JS FILE WITH FUNCTIONS, EXPORT IS ALREADY WRITTEN
 
-
-// TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -55,21 +53,16 @@ const questions = [
         //will be under "questions" section in md file
     },];
 
-
-
-// TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(`${fileName}.md`, generateMarkdown(data), (error) => {
         if (error) console.log("Oops, something went wrong!");
     })
 }
 
-// TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then(data => {
         writeToFile("README", data)
     })
 }
 
-// Function call to initialize app
 init();

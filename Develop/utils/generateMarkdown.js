@@ -34,7 +34,6 @@ function renderLicenseSection(data) {
   return `For this project I used ${renderLicenseLink(data)} ${renderLicenseBadge(data)}`;
 }
 
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
